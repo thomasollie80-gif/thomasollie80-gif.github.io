@@ -324,28 +324,24 @@
 
     .right-stack {
       display: grid;
-      grid-template-rows: 62% 38%;
+      grid-template-rows: auto 1fr;
       gap: 14px;
+      height: 100%;
     }
 
-    .experience {
-      padding: 28px 30px 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    .experience { padding: 24px 28px 23px; }
 
     .experience .section-label {
       color: var(--green);
-      margin-bottom: 28px;
+      margin-bottom: 23px;
     }
 
     .studio-row {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       align-items: center;
-      gap: 28px;
-      margin-bottom: 28px;
+      gap: 24px;
+      margin-bottom: 24px;
     }
 
     .studio {
@@ -356,11 +352,11 @@
       font-weight: 800;
     }
 
-    .studio.ilm { font-family: Georgia, serif; font-size: 2.05rem; letter-spacing: .1em; }
-    .studio.fs { font-size: 1.18rem; letter-spacing: .08em; }
-    .studio.dneg { font-size: 1.95rem; letter-spacing: .14em; }
-    .studio.rt { font-size: 1.18rem; }
-    .studio.abba { font-size: 1.42rem; line-height: .9; white-space: normal; }
+    .studio.ilm { font-family: Georgia, serif; font-size: 1.7rem; letter-spacing: .1em; }
+    .studio.fs { font-size: 1rem; letter-spacing: .08em; }
+    .studio.dneg { font-size: 1.65rem; letter-spacing: .14em; }
+    .studio.rt { font-size: 1.02rem; }
+    .studio.abba { font-size: 1.2rem; line-height: .9; white-space: normal; }
 
     .experience p {
       margin: 0;
@@ -369,39 +365,23 @@
     }
 
     .contact {
-      padding: 15px 22px;
-      display: grid;
-      grid-template-columns: 78px 1fr;
-      gap: 18px;
-      align-items: center;
+      padding: 24px 28px;
+      display: block;
     }
 
     .contact .section-label {
       color: var(--purple);
-      margin-bottom: 2px;
-    }
-
-    .mail-icon {
-      grid-row: 2 / 4;
-      width: 66px;
-      height: 66px;
-      border-radius: 50%;
-      border: 1px solid var(--purple);
-      display: grid;
-      place-items: center;
-      color: var(--purple);
-      font-size: 2.55rem;
-      line-height: 1;
+      margin-bottom: 18px;
     }
 
     .contact h2 {
-      margin: 0;
-      font-size: 1.52rem;
+      margin: 0 0 2px;
+      font-size: 1.65rem;
     }
 
     .contact p {
       color: #c8cdd5;
-      margin: 0 0 10px;
+      margin: 0 0 16px;
     }
 
     .contact-actions {
@@ -474,8 +454,8 @@
 
     .contact-note {
       color: #9ca3ad;
-      font-size: .75rem;
-      margin-top: 7px;
+      font-size: .78rem;
+      margin-top: 12px;
     }
 
     @media (max-width: 1080px) {
@@ -494,8 +474,6 @@
       .section-label { grid-column: auto; }
       .portrait { max-width: 300px; }
       .studio-row { grid-template-columns: repeat(2, 1fr); }
-      .contact { grid-template-columns: 1fr; }
-      .mail-icon { grid-row: auto; }
       .reel-card { min-height: 275px; }
       .reel-link { padding: 26px 22px 24px; }
       .reel-arrow { margin-top: 30px; }
@@ -613,28 +591,24 @@
 
           <article class="panel contact" id="contact">
             <div class="section-label">Get in Touch</div>
-            <div class="mail-icon" aria-hidden="true">✉</div>
+            <h2>Let’s connect.</h2>
+            <p>I’m always open to interesting projects and creative collaborations.</p>
 
-            <div>
-              <h2>Let’s connect.</h2>
-              <p>I’m always open to interesting projects and creative collaborations.</p>
-
-              <div class="contact-actions">
-                <a class="email-button" href="mailto:thomasollie80@gmail.com">Email me</a>
-                <span class="email-address">
-                  <a href="mailto:thomasollie80@gmail.com">thomasollie80@gmail.com</a>
-                  <button class="copy-email" type="button" aria-label="Copy email address" title="Copy email address">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <rect x="8" y="8" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
-                      <path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-10A1.5 1.5 0 0 0 3 5.5v10A1.5 1.5 0 0 0 4.5 17H8" fill="none" stroke="currentColor" stroke-width="1.7"/>
-                    </svg>
-                  </button>
-                  <span class="copy-status" aria-live="polite">Copied</span>
-                </span>
-              </div>
-
-              <div class="contact-note">Opens your default email app.</div>
+            <div class="contact-actions">
+              <a class="email-button" href="mailto:thomasollie80@gmail.com">Email me</a>
+              <span class="email-address">
+                <a href="mailto:thomasollie80@gmail.com">thomasollie80@gmail.com</a>
+                <button class="copy-email" type="button" aria-label="Copy email address" title="Copy email address">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="8" y="8" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-10A1.5 1.5 0 0 0 3 5.5v10A1.5 1.5 0 0 0 4.5 17H8" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                  </svg>
+                </button>
+                <span class="copy-status" aria-live="polite">Copied</span>
+              </span>
             </div>
+
+            <div class="contact-note">Opens your default email app.</div>
           </article>
         </div>
       </section>
