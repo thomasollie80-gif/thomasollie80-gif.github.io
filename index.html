@@ -458,6 +458,75 @@
       margin-top: 12px;
     }
 
+    .artkard-widget {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 48px 1fr 28px;
+      gap: 13px;
+      align-items: center;
+      padding: 11px 12px;
+      border: 1px solid #303542;
+      border-radius: 7px;
+      background:
+        linear-gradient(90deg, rgba(189,100,255,.055), rgba(189,100,255,.015)),
+        #0c0f15;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+
+    .artkard-widget:hover {
+      border-color: color-mix(in srgb, var(--purple) 62%, #303542);
+      background:
+        linear-gradient(90deg, rgba(189,100,255,.09), rgba(189,100,255,.025)),
+        #0c0f15;
+      transform: translateY(-1px);
+    }
+
+    .artkard-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      border: 1px solid rgba(189,100,255,.35);
+      background: linear-gradient(145deg, rgba(189,100,255,.20), rgba(34,168,255,.09));
+      color: var(--purple);
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .artkard-copy {
+      min-width: 0;
+    }
+
+    .artkard-title {
+      display: block;
+      color: #f1f3f6;
+      font-size: .92rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .artkard-subtitle {
+      display: block;
+      margin-top: 4px;
+      color: #aeb4be;
+      font-size: .76rem;
+      line-height: 1.2;
+    }
+
+    .artkard-arrow {
+      justify-self: end;
+      color: var(--purple);
+      font-size: 1.45rem;
+      line-height: 1;
+      transition: transform .18s ease;
+    }
+
+    .artkard-widget:hover .artkard-arrow {
+      transform: translateX(3px);
+    }
+
     @media (max-width: 1080px) {
       .reels { grid-template-columns: 1fr; }
       .reel-card { min-height: 300px; }
@@ -477,6 +546,14 @@
       .reel-card { min-height: 275px; }
       .reel-link { padding: 26px 22px 24px; }
       .reel-arrow { margin-top: 30px; }
+      .artkard-widget {
+        grid-template-columns: 44px 1fr 24px;
+        padding: 10px;
+      }
+      .artkard-mark {
+        width: 44px;
+        height: 44px;
+      }
     }
 
     @media (hover: none) {
@@ -561,7 +638,7 @@
 
             <p>
               I’ve spent the last eight years animating across film, TV, games and immersive projects.
-              I love the challenge of performance, clear mechanics and strong storytelling, and the
+              I love the challenge of performance, clear mechanics and strong storytelling — and the
               moment when it all clicks.
             </p>
 
@@ -609,6 +686,21 @@
             </div>
 
             <div class="contact-note">Opens your default email app.</div>
+
+            <a
+              class="artkard-widget"
+              href="https://artkard.co/olliethomas"
+              target="_blank"
+              rel="noopener"
+              aria-label="View Ollie Thomas on ArtKard"
+            >
+              <span class="artkard-mark" aria-hidden="true">A</span>
+              <span class="artkard-copy">
+                <span class="artkard-title">View my ArtKard</span>
+                <span class="artkard-subtitle">Digital business card</span>
+              </span>
+              <span class="artkard-arrow" aria-hidden="true">→</span>
+            </a>
           </article>
         </div>
       </section>
