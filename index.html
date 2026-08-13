@@ -324,23 +324,28 @@
 
     .right-stack {
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: 62% 38%;
       gap: 14px;
     }
 
-    .experience { padding: 24px 28px 23px; }
+    .experience {
+      padding: 28px 30px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
     .experience .section-label {
       color: var(--green);
-      margin-bottom: 23px;
+      margin-bottom: 28px;
     }
 
     .studio-row {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       align-items: center;
-      gap: 24px;
-      margin-bottom: 24px;
+      gap: 28px;
+      margin-bottom: 28px;
     }
 
     .studio {
@@ -351,11 +356,11 @@
       font-weight: 800;
     }
 
-    .studio.ilm { font-family: Georgia, serif; font-size: 1.7rem; letter-spacing: .1em; }
-    .studio.fs { font-size: 1rem; letter-spacing: .08em; }
-    .studio.dneg { font-size: 1.65rem; letter-spacing: .14em; }
-    .studio.rt { font-size: 1.02rem; }
-    .studio.abba { font-size: 1.2rem; line-height: .9; white-space: normal; }
+    .studio.ilm { font-family: Georgia, serif; font-size: 2.05rem; letter-spacing: .1em; }
+    .studio.fs { font-size: 1.18rem; letter-spacing: .08em; }
+    .studio.dneg { font-size: 1.95rem; letter-spacing: .14em; }
+    .studio.rt { font-size: 1.18rem; }
+    .studio.abba { font-size: 1.42rem; line-height: .9; white-space: normal; }
 
     .experience p {
       margin: 0;
@@ -364,10 +369,10 @@
     }
 
     .contact {
-      padding: 24px 28px;
+      padding: 15px 22px;
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 28px;
+      grid-template-columns: 78px 1fr;
+      gap: 18px;
       align-items: center;
     }
 
@@ -378,24 +383,25 @@
 
     .mail-icon {
       grid-row: 2 / 4;
-      width: 98px;
-      height: 98px;
+      width: 66px;
+      height: 66px;
       border-radius: 50%;
       border: 1px solid var(--purple);
       display: grid;
       place-items: center;
       color: var(--purple);
-      font-size: 2.35rem;
+      font-size: 2.55rem;
+      line-height: 1;
     }
 
     .contact h2 {
-      margin: 0 0 2px;
-      font-size: 1.65rem;
+      margin: 0;
+      font-size: 1.52rem;
     }
 
     .contact p {
       color: #c8cdd5;
-      margin: 0 0 16px;
+      margin: 0 0 10px;
     }
 
     .contact-actions {
@@ -468,8 +474,8 @@
 
     .contact-note {
       color: #9ca3ad;
-      font-size: .78rem;
-      margin-top: 12px;
+      font-size: .75rem;
+      margin-top: 7px;
     }
 
     @media (max-width: 1080px) {
@@ -592,7 +598,7 @@
 
         <div class="right-stack">
           <article class="panel experience" id="experience">
-            <div class="section-label">Selected Experience</div>
+            <div class="section-label">Experience</div>
 
             <div class="studio-row" aria-label="Selected studios and projects">
               <div class="studio ilm">ILM</div>
