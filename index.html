@@ -163,7 +163,16 @@
       pointer-events: none;
     }
 
-    .reel-card.is-previewing .video-shade { opacity: 1; }
+    .reel-card.is-previewing .video-shade { opacity: .16; }
+
+    .reel-card.is-previewing .reel-link > * {
+      opacity: 0;
+      transition: opacity .14s ease;
+    }
+
+    .reel-card.is-previewing .preview-hint {
+      opacity: 0;
+    }
 
     .reel-link {
       position: absolute;
@@ -173,6 +182,10 @@
       flex-direction: column;
       justify-content: flex-end;
       padding: 34px 30px 30px;
+    }
+
+    .reel-link > * {
+      transition: opacity .14s ease;
     }
 
     .reel-title {
@@ -409,7 +422,49 @@
       color: #09070c;
     }
 
-    .email-address { color: #d4d7dd; font-size: .9rem; }
+    .email-address {
+      color: #d4d7dd;
+      font-size: .9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copy-email {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 4px;
+      border: 1px solid #3a404a;
+      background: transparent;
+      color: #cfd4dc;
+      cursor: pointer;
+      transition: border-color .18s ease, color .18s ease, background .18s ease;
+    }
+
+    .copy-email:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+      background: rgba(189,100,255,.06);
+    }
+
+    .copy-email svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .copy-status {
+      min-width: 48px;
+      color: var(--purple);
+      font-size: .76rem;
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
+
+    .copy-status.is-visible { opacity: 1; }
 
     .contact-note {
       color: #9ca3ad;
@@ -560,7 +615,16 @@
 
               <div class="contact-actions">
                 <a class="email-button" href="mailto:thomasollie80@gmail.com">Email me</a>
-                <a class="email-address" href="mailto:thomasollie80@gmail.com">thomasollie80@gmail.com</a>
+                <span class="email-address">
+                  <a href="mailto:thomasollie80@gmail.com">thomasollie80@gmail.com</a>
+                  <button class="copy-email" type="button" aria-label="Copy email address" title="Copy email address">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="8" y="8" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                      <path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-10A1.5 1.5 0 0 0 3 5.5v10A1.5 1.5 0 0 0 4.5 17H8" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                    </svg>
+                  </button>
+                  <span class="copy-status" aria-live="polite">Copied</span>
+                </span>
               </div>
 
               <div class="contact-note">Opens your default email app.</div>
@@ -577,6 +641,48 @@
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       if (!supportsHover || reduceMotion) return;
+
+
+      const copyButton = document.querySelector('.copy-email');
+      const copyStatus = document.querySelector('.copy-status');
+
+      if (copyButton) {
+        copyButton.addEventListener('click', async () => {
+          const email = 'thomasollie80@gmail.com';
+          let copied = false;
+
+          try {
+            await navigator.clipboard.writeText(email);
+            copied = true;
+          } catch (error) {
+            const helper = document.createElement('textarea');
+            helper.value = email;
+            helper.setAttribute('readonly', '');
+            helper.style.position = 'fixed';
+            helper.style.opacity = '0';
+            document.body.appendChild(helper);
+            helper.select();
+
+            try {
+              copied = document.execCommand('copy');
+            } catch (_) {
+              copied = false;
+            }
+
+            helper.remove();
+          }
+
+          if (copied && copyStatus) {
+            copyStatus.classList.add('is-visible');
+            copyButton.setAttribute('aria-label', 'Email address copied');
+
+            setTimeout(() => {
+              copyStatus.classList.remove('is-visible');
+              copyButton.setAttribute('aria-label', 'Copy email address');
+            }, 1600);
+          }
+        });
+      }
 
       document.querySelectorAll('.reel-card').forEach((card) => {
         const host = card.querySelector('.preview-host');
